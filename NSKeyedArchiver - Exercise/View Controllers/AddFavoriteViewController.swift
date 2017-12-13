@@ -23,9 +23,18 @@ class AddFavoriteViewController: UIViewController {
     
     
     @IBAction func addFavorite(_ sender: Any) {
+        var titleAlert = ""
+        var messageAlert = ""
         if let favorite = favoriteImage {
-            DataModel.shared.addDSAItemToList(dsaItem: favorite)
-            let alert = UIAlertController(title: "Favorite", message: "Added to favorite", preferredStyle: UIAlertControllerStyle.alert)
+            if DataModel.shared.getLists().contains(where: {$0.id == favorite.id}) {
+                titleAlert = "Alert"
+                messageAlert = "This element already exists in your favorite"
+            } else {
+                DataModel.shared.addDSAItemToList(dsaItem: favorite)
+                titleAlert = "Favorite"
+                messageAlert = "Added to favorite"
+            }
+            let alert = UIAlertController(title: titleAlert, message: messageAlert, preferredStyle: UIAlertControllerStyle.alert)
             
             // add an action (button)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
@@ -42,7 +51,6 @@ class AddFavoriteViewController: UIViewController {
             let setImage: (UIImage) -> Void = {(onlineImage: UIImage) in
                 self.imagePicture.image = onlineImage
             }
-            
             ImageAPIClient.manager.getImage(from: favorite.webformatURL, completionHandler: setImage, errorHandler: {print($0)})
         }
     }

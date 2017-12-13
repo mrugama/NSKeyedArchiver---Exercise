@@ -26,7 +26,6 @@ class DetailFavoriteViewController: UIViewController {
             let setImage: (UIImage) -> Void = {(onlineImage: UIImage) in
                 self.imagePicture.image = onlineImage
             }
-            
             ImageAPIClient.manager.getImage(from: favorite.webformatURL, completionHandler: setImage, errorHandler: {print($0)})
         }
     }

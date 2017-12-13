@@ -58,7 +58,6 @@ class ImagesViewController: UIViewController {
         if let addNav = segue.destination as? UINavigationController {
             if let AddFavVC = addNav.viewControllers.first as? AddFavoriteViewController {
                 AddFavVC.favoriteImage = images[self.imageTableView.indexPathForSelectedRow!.row]
-                print(AddFavVC.favoriteImage!.tags)
             }
         }
     }
