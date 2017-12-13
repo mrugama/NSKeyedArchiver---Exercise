@@ -66,7 +66,7 @@ class DataModel {
     
     // update
     public func updateDSAItem(withUpdatedItem item: Image) {
-        if let index = lists.index(where: {$0 === item}) {
+        if let index = lists.index(where: {$0.id == item.id}) {
             lists[index] = item
         }
     }

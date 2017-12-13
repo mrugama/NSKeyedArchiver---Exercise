@@ -24,8 +24,7 @@ class AddFavoriteViewController: UIViewController {
     
     @IBAction func addFavorite(_ sender: Any) {
         if let favorite = favoriteImage {
-            let dsaFavorite = Image(imageInfo: favorite)
-            DataModel.shared.addDSAItemToList(dsaItem: dsaFavorite)
+            DataModel.shared.addDSAItemToList(dsaItem: favorite)
             let alert = UIAlertController(title: "Favorite", message: "Added to favorite", preferredStyle: UIAlertControllerStyle.alert)
             
             // add an action (button)

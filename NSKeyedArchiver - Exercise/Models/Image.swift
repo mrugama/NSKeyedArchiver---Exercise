@@ -11,7 +11,7 @@ struct AllInfo: Codable {
     let hits: [Image]
 }
 
-class Image: Codable {
+struct Image: Codable {
     let likes: Int
     let tags: String
     let comments: Int
@@ -22,19 +22,6 @@ class Image: Codable {
     let user: String
     let userImageURL: String
     let id: Int
-    
-    init(imageInfo: Image) {
-        self.likes = imageInfo.likes
-        self.tags = imageInfo.tags
-        self.comments = imageInfo.comments
-        self.pageURL = imageInfo.pageURL
-        self.previewURL = imageInfo.previewURL
-        self.webformatURL = imageInfo.webformatURL
-        self.user_id = imageInfo.user_id
-        self.user = imageInfo.user
-        self.userImageURL = imageInfo.userImageURL
-        self.id = imageInfo.id
-    }
 }
 
 struct Favorite: Codable {
