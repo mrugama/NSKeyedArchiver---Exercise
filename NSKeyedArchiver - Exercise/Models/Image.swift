@@ -11,7 +11,7 @@ struct AllInfo: Codable {
     let hits: [Image]
 }
 
-struct Image: Codable {
+class Image: Codable {
     let likes: Int
     let tags: String
     let comments: Int
