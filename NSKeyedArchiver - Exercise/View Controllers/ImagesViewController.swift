@@ -29,9 +29,11 @@ class ImagesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.imageTableView.dataSource = self
+        self.imageTableView.delegate = self
         self.searchBar.delegate = self
         self.refreshControl.addTarget(self, action: #selector(refreshOrders(_:)), for: UIControlEvents.valueChanged)
         self.imageTableView.refreshControl = refreshControl
+        DataModel.shared.load()
     }
     
     @objc private func refreshOrders(_ sender: Any) {

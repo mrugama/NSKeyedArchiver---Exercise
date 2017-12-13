@@ -17,18 +17,17 @@ class FavoritesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.favoriteTableView.dataSource = self
-        
+        self.favoriteTableView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        DataModel.shared.load()
         getFavorite()
     }
     
     func getFavorite() {
         favoriteList = DataModel.shared.getLists()
-        DataModel.shared.getLists().forEach{print($0)}
+        DataModel.shared.getLists().forEach{print($0.tags)}
         self.favoriteTableView.reloadData()
     }
 

@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-//extension ImagesViewController: UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 350
-//    }
-//}
+extension ImagesViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
+    }
+}
 
 extension ImagesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
